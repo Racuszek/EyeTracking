@@ -1,4 +1,22 @@
 #!/usr/bin/env python3
+"""
+Takes 1 required argument 1 optional
+required-file to get data  
+optional-name of output files (out as default)
+
+output: 
+-to console coordinates of points [x,y] :
+	left top corner 
+	right top corner 
+	left bottom corner 
+	right bottom corner 
+	middle at the beginning of file 
+	middle at the end of file
+-as *.txt file:
+	as above
+-*.png file 
+	visualization of points
+"""
 from sys import argv
 from matplotlib import pyplot as plt
 
@@ -49,7 +67,7 @@ y1 = avrage(( tuple((value[1]) for value in middle)) )
 x2 = avrage(( tuple((value[0]) for value in middle2)))
 y2 = avrage(( tuple((value[1]) for value in middle2)))
 mid = (avrage( tuple( (x1,x2) )),avrage(	tuple( (y1,y2) )) )
-print(mid)
+#print(mid)
 
 #remove value of middle from data to remove offset
 data = [[line[0]-mid[0],line[1]-mid[1]] for line in data ]
@@ -70,6 +88,8 @@ middle2		= [avrage(tuple((value[0] for value in middle2 ))), avrage(tuple((value
 
 ValueList = ([leftTop[0],leftBottom[0],rightBottom[0],rightTop[0],middle[0],middle2[0]],[leftTop[1],leftBottom[1],rightBottom[1],rightTop[1],middle[1],middle2[1]])
 
+#output of files 
+
 writeFileName =  "out" + argv[1] 
 if argv.__len__() == 3:
 	writeFileName = argv[2]
@@ -78,6 +98,7 @@ with open(writeFileName + ".dat","w") as file:
 		file.write("{}\t{}\n".format(ValueList[0][i],ValueList[1][i]))
 
 print("{}\n{}\n{}\n{}".format(leftTop,rightTop,leftBottom,rightBottom))
+
 plt.plot(ValueList[0],ValueList[1],"+")
 plt.grid(True)
 #plt.axis([-,320,-250,200])
