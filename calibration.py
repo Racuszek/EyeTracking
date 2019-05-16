@@ -69,7 +69,7 @@ y2 = avrage(( tuple((value[1]) for value in middle2)))
 mid = (avrage( tuple( (x1,x2) )),avrage(	tuple( (y1,y2) )) )
 #print(mid)
 
-#remove value of middle from data to remove offset
+#remove value of middle from data in order to normalize data
 data = [[line[0]-mid[0],line[1]-mid[1]] for line in data ]
 
 leftTop		= data[int(offset + 1*(segmentLenght)):int((offset+elementLenght)+(1*segmentLenght))]
