@@ -3,7 +3,7 @@ from sys import argv
 import matplotlib.pyplot as plt
 
 try:
-	file=open(argv[1])
+	file=open(argv[1],encoding='ISO-8859-1')
 except:
 	print('Error occured while opening file: '+argv[1])
 
@@ -27,10 +27,10 @@ for i in range(25000):
 	# y=np.random.randint(1090, 1900)
 	plt.scatter(x, y, s=10)	
 	plt.pause(0.00001)
-# print(xlist)
+print(xlist)
 testxlist=[1080, 1090, 1085]
 testylist=[2340, 2320, 2315]
-# print(ylist)
+print(ylist)
 plt.grid(True)
 
 # plt.savefig('figure1.png')
