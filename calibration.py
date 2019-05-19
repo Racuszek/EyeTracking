@@ -86,7 +86,7 @@ rightBottom	= [avrage(tuple((value[0] for value in rightBottom ))), avrage(tuple
 middle 		= [avrage(tuple((value[0] for value in middle ))), avrage(tuple((value[1] for value in middle ))) ] 
 middle2		= [avrage(tuple((value[0] for value in middle2 ))), avrage(tuple((value[1] for value in middle2 ))) ] 
 
-ValueList = ([leftTop[0],leftBottom[0],rightBottom[0],rightTop[0],middle[0],middle2[0]],[leftTop[1],leftBottom[1],rightBottom[1],rightTop[1],middle[1],middle2[1]])
+ValueList = ([leftTop[0],rightTop[0],leftBottom[0],rightBottom[0],middle[0],middle2[0]],[leftTop[1],rightTop[1],leftBottom[1],rightBottom[1],middle[1],middle2[1]])
 
 #output of files 
 
@@ -97,9 +97,10 @@ with open(writeFileName + ".dat","w") as file:
 	for i in range (6):
 		file.write("{}\t{}\n".format(ValueList[0][i],ValueList[1][i]))
 
-print("{}\n{}\n{}\n{}".format(leftTop,rightTop,leftBottom,rightBottom))
+print("{}\n{}\n{}\n{}\n{}\n{}".format(leftTop,rightTop,leftBottom,rightBottom,middle,middle2))
 
-plt.plot(ValueList[0],ValueList[1],"+")
+plt.plot([val[0] for val in data],[val[1] for val in data],"o",markersize=1)
+plt.plot(ValueList[0],ValueList[1],"+r",markersize=20)
 plt.grid(True)
-#plt.axis([-,320,-250,200])
+#plt.axis([-400,400,-300,300])
 plt.savefig(writeFileName + ".png")
