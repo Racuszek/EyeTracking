@@ -90,7 +90,7 @@ ValueList = ([leftTop[0],rightTop[0],leftBottom[0],rightBottom[0],middle[0],midd
 
 #output of files 
 
-writeFileName =  "out" + argv[1] 
+writeFileName =  "out_" + argv[1][:-4] 
 if argv.__len__() == 3:
 	writeFileName = argv[2]
 with open(writeFileName + ".dat","w") as file:
