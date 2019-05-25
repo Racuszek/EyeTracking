@@ -1,0 +1,10 @@
+ffmpeg -i input.mp4 -qscale:v 2 output_%06d.jpg
+ffmpeg -i input-video.avi -vn -acodec copy output-audio.aac
+ffmpeg -i Movie.mkv -map 0:s:0 subs.srt
+./insert_dots
+ffmpeg -r 24 -f image2 -s 1280x720 -i ./data/L-%06d.jpeg -i output-audio.aac -i subs.srt -vcodec Lavf57.56.101 -crf 2 -acodec copy  test.mvk 
+
+
+
+udio codec Lavc57.64.101 aac
+
