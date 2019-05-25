@@ -7,7 +7,7 @@ with open(filename) as file:
 	alllines=file.readlines()
 values=[float(line.split('\t')[2].strip('\n')) for line in alllines[1:]]
 a=array.array('f', values)
-plt.hist(a, bins='auto')
-plt.title("Histogram with 'auto' bins")
+plt.hist(a, range=(0, 800), bins='auto')
+plt.title(filename+' - histogram y')
 
-plt.show()
+plt.savefig('filename')
