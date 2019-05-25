@@ -9,5 +9,9 @@ values=[float(line.split('\t')[2].strip('\n')) for line in alllines[1:90000]]
 a=array.array('f', values)
 plt.hist(a, range=(0, 800), bins='auto')
 plt.title(filename[:-4]+' - histogram y')
-
-plt.savefig(filename[:-4])
+plt.savefig(filename[:-4]+'_with_histrange')
+plt.clf()
+plt.hist(a, bins='auto')
+plt.xlim(0, 800)
+plt.grid(b=True)
+plt.savefig(filename[:-4]+'_with_xlim')
